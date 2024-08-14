@@ -1,0 +1,1 @@
+# mkdocs-rendering-obsidian-auto-card-link
