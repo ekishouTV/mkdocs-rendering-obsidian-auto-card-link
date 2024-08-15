@@ -1,0 +1,44 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/alpine
+{
+	"name": "mroacl",
+
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+
+	"mounts": [
+		{
+			"source": "mroacl-bash-history",
+			"target": "/commandhistory",
+			"type": "volume"
+		}
+	],
+
+	"postCreateCommand": "bash ${containerWorkspaceFolder}/.devcontainer/post-create.sh",
+
+	"containerEnv": {
+		"TZ": "Asia/Tokyo"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"charliermarsh.ruff",
+				"mhutchie.git-graph",
+				"vivaxy.vscode-conventional-commits",
+				"eamodio.gitlens"
+			],
+			"settings": {
+				"[python]": {
+					"editor.codeActionsOnSave": {
+						"source.organizeImports": "explicit"
+					},
+					"editor.defaultFormatter": "charliermarsh.ruff"
+				},
+				"git-graph.dialog.rebase.ignoreDate": false,
+				"conventionalCommits.emojiFormat": "emoji",
+				"gitlens.plusFeatures.enabled": false
+			}
+		}
+	}
+}
