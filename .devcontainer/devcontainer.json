@@ -1,0 +1,54 @@
+{
+	"name": "mroacl",
+
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": {"USERNAME": "${localEnv:USER}"}
+	},
+
+	"mounts": [
+		{
+			"source": "mroacl-bash-history",
+			"target": "/commandhistory",
+			"type": "volume"
+		},
+		{
+			"source": "${localEnv:HOME}/.ssh",
+			"target": "/home/${localEnv:USER}/.ssh",
+			"type": "bind"
+		}
+	],
+
+	"postCreateCommand": "bash ${containerWorkspaceFolder}/.devcontainer/post-create.sh",
+
+	"remoteUser": "${localEnv:USER}",
+
+	"containerEnv": {
+		"TZ": "Asia/Tokyo"
+	},
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"charliermarsh.ruff",
+				"mhutchie.git-graph",
+				"vivaxy.vscode-conventional-commits",
+				"eamodio.gitlens"
+			],
+			"settings": {
+				"[python]": {
+					"editor.codeActionsOnSave": {
+						"source.organizeImports": "explicit"
+					},
+					"editor.defaultFormatter": "charliermarsh.ruff"
+				},
+				"git-graph.dialog.rebase.ignoreDate": false,
+				"conventionalCommits.autoCommit": false,
+				"conventionalCommits.emojiFormat": "emoji",
+				"conventionalCommits.promptScopes": false,
+				"conventionalCommits.showEditor": true,
+				"gitlens.plusFeatures.enabled": false
+			}
+		}
+	}
+}

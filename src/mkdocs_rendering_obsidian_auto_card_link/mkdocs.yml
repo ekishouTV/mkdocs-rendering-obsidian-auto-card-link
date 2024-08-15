@@ -1,0 +1,4 @@
+site_name: mkdocs-rendering-obsidian-auto-card-link
+
+plugins:
+  - rendering_obsidian_auto_card_link
