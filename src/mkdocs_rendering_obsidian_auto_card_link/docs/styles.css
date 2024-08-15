@@ -1,0 +1,150 @@
+/*
+    Based on https://github.com/nekoshita/obsidian-auto-card-link/blob/1.2.3/styles.css
+    License: https://github.com/nekoshita/obsidian-auto-card-link/blob/1.2.3/LICENSE
+*/
+
+.auto-card-link-container {
+    container-type: inline-size;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    /* This is because the text and the card are too close together. */
+    margin-bottom: 1rem;
+
+    --auto-card-link-indent-size: 2.5em;
+
+    /* Currently this feature does not work expected.
+    &[data-auto-card-link-depth="0"] {
+        margin-left: calc(var(--auto-card-link-indent-size) * 0);
+    }
+
+    &[data-auto-card-link-depth="1"] {
+        margin-left: calc(var(--auto-card-link-indent-size) * 1);
+    }
+
+    &[data-auto-card-link-depth="2"] {
+        margin-left: calc(var(--auto-card-link-indent-size) * 2);
+    }
+
+    &[data-auto-card-link-depth="3"] {
+        margin-left: calc(var(--auto-card-link-indent-size) * 3);
+    }
+
+    &[data-auto-card-link-depth="4"] {
+        margin-left: calc(var(--auto-card-link-indent-size) * 4);
+    }
+
+    &[data-auto-card-link-depth="5"] {
+        margin-left: calc(var(--auto-card-link-indent-size) * 5);
+    }
+
+    &[data-auto-card-link-depth="6"] {
+        margin-left: calc(var(--auto-card-link-indent-size) * 6);
+    }
+
+    &[data-auto-card-link-depth="7"] {
+        margin-left: calc(var(--auto-card-link-indent-size) * 7);
+    } */
+}
+
+@container (max-width: 300px) {
+    .auto-card-link-thumbnail {
+        display: none;
+    }
+}
+
+@container (max-width: 500px) {
+    .auto-card-link-description {
+        display: none;
+    }
+
+    .auto-card-link-thumbnail {
+        max-width: 40% !important;
+    }
+
+    .auto-card-link-title {
+        white-space: normal !important;
+        --lh: 1.5em;
+        line-height: var(--lh);
+        height: calc(var(--lh) * 3);
+    }
+}
+
+.auto-card-link-card {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 8em;
+    transition: 20ms ease-in 0s;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(-webkit-link);
+    background: rgba(var(--bs-tertiary-bg-rgb), 1) !important;
+    border: solid 2px var(--bs-border-color-translucent);
+
+    &:hover {
+        background: rgba(var(--bs-tertiary-bg-rgb), 0.5) !important;
+        border-color: var(--bs-link-hover-color);
+        text-decoration: none;
+    }
+}
+
+.auto-card-link-main {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.18em;
+    padding: 0.5em 0.6em;
+    overflow: hidden;
+}
+
+.auto-card-link-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &:hover {
+        color: var(--bs-link-hover-color)
+    }
+}
+
+.auto-card-link-description {
+    overflow: hidden;
+    --lh: 1.4em;
+    line-height: var(--lh);
+    height: calc(var(--lh) * 3);
+    color: var(--bs-secondary-text-emphasis);
+    font-size: 0.85rem;
+}
+
+.auto-card-link-host {
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    & span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &:hover {
+        color: var(--bs-link-hover-color)
+    }
+}
+
+.auto-card-link-favicon {
+    width: 16px !important;
+    height: auto !important;
+    margin: 0 0.5em 0 0 !important;
+}
+
+.auto-card-link-thumbnail {
+    width: unset !important;
+    height: 100%;
+    object-fit: cover;
+    max-width: 50% !important;
+    pointer-events: none;
+    margin: 0 !important;
+}
