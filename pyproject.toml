@@ -6,7 +6,7 @@ authors = [
     { name = "ekishouTV", email = "45916397+ekishouTV@users.noreply.github.com" }
 ]
 dependencies = [
-    "mkdocs>=1.6.0",
+    "mkdocs>=1.6.1",
 ]
 readme = "README.md"
 requires-python = ">= 3.12"
@@ -21,7 +21,7 @@ rendering_obsidian_auto_card_link = 'mkdocs_rendering_obsidian_auto_card_link.pl
 [tool.rye]
 managed = true
 dev-dependencies = [
-    "ruff>=0.5.7",
+    "ruff>=0.8.4",
 ]
 
 [tool.ruff]
