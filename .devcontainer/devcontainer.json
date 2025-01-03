@@ -40,6 +40,7 @@
 					"editor.codeActionsOnSave": {
 						"source.organizeImports": "explicit"
 					},
+					"editor.formatOnSave": true,
 					"editor.defaultFormatter": "charliermarsh.ruff"
 				},
 				"git-graph.dialog.rebase.ignoreDate": false,
